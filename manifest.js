@@ -137,9 +137,8 @@ module.exports = {
 	marketsData : {
 		path: 'bottom/markets-data'
 	},
-	dailyDigestTest : {
-		path: 'bottom/lazy',
-		lazy: true
+	oneClickDailyDigest: {
+		path: 'bottom/oneclick-daily-digest'
 	},
 	myFtAccountTopicRecs: {
 		path: 'bottom/myft-account-topic-recs',
