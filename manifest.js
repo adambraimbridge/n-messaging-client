@@ -28,9 +28,6 @@ module.exports = {
 	paymentFailure: {
 		path: 'top/payment-failure'
 	},
-	teamTrial: {
-		path: 'bottom/team-trial'
-	},
 	anonSubscribeNow: {
 		path: 'top/anon-subscribe-now'
 	},
