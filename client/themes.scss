@@ -7,5 +7,6 @@
 
 @include oBannerAddTheme('success', (
 	background-color: oColorsMix('jade', $percentage: 20),
-	text-color: oColorsMix('black', 'jade', $percentage: 43)
+	text-color: oColorsMix('black', 'jade', $percentage: 43),
+	button-type: 'secondary'
 ));
