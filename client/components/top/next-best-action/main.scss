@@ -1,0 +1,21 @@
+@include oMessageAddState(
+	$name: 'pikachu',
+	$opts: (
+	'background-color': 'slate',
+	'foreground-color': 'white',
+	'highlight-color': 'lemon',
+	'button-type': 'primary'
+), $types: ('action'));
+
+.o-message.n-messaging-nba {
+	.n-messaging-nba__content {
+		&--placeholder {
+			visibility: hidden;
+		}
+		&--actual {
+			position: absolute;
+			top: 0;
+		}
+
+	}
+}
