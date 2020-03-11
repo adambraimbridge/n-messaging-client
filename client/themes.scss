@@ -10,7 +10,7 @@
 	text-color: oColorsMix('black', 'jade', $percentage: 43)
 ));
 
-@include oBannerAddTheme('pikachu', (
+@include oBannerAddTheme('slate-lemon', (
 	background-color: oColorsByName('slate'),
 	text-color: oColorsByName('white'),
 	button-background-color: oColorsByName('lemon'),
