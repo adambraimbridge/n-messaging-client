@@ -143,5 +143,8 @@ module.exports = {
 	},
 	usElection2020Promo: {
 		path: 'bottom/us-election-2020-promo'
+	},
+	coronavirusNewsletterPromo: {
+		path: 'bottom/coronavirus-newsletter-promo'
 	}
 };
