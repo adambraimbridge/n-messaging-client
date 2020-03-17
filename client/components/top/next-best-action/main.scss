@@ -33,7 +33,9 @@
 		}
 
 	}
-	.n-messaging-nba__view--hidden {
+
+	.n-messaging-nba__view--hidden,
+	.n-messaging-nba__action--hidden {
 		display: none;
 	}
 }

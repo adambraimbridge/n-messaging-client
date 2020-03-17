@@ -24,11 +24,17 @@ function initClickToActionContent (banner, guruResult) {
 
 function initSuccessContent (banner, guruResult) {
 	const text = banner.messageElement.querySelector('[data-n-messaging-nba-success-text]');
-	const action = banner.messageElement.querySelector('[data-n-messaging-nba-success-action]');
-
 	text.innerHTML = guruResult.renderData.successHtml;
-	action.innerText = guruResult.renderData.successActionText;
-	action.setAttribute('href', guruResult.renderData.successActionHref);
+
+	const action = banner.messageElement.querySelector('[data-n-messaging-nba-success-action]');
+	const actionText = guruResult.renderData.successActionText;
+	if (actionText) {
+		action.innerText = actionText;
+		action.setAttribute('href', guruResult.renderData.successActionHref);
+	} else {
+		// nothing to follow up with
+		action.classList.add('n-messaging-nba__action--hidden');
+	}
 }
 
 function setView (banner, desiredViewId) {
@@ -72,7 +78,7 @@ function initErrorMessage (banner) {
 
 export default function customSetup (banner, done, guruResult) {
 	// TODO remove this mock when guru is ready with the needed data
-	guruResult = mockGuruData.gift();
+	guruResult = mockGuruData.app();
 
 	// TODO rethink this, need to cater for:
 	// - gift article, which has JS for action but staying on CTA message and not going to success message

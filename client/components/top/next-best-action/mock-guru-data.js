@@ -63,3 +63,29 @@ export function gift () {
 		}
 	};
 }
+
+export function app () {
+	return {
+		messageId: 'app',
+		isDynamicMessage: true,
+		renderData: {
+			ctaHtml: `
+				<span class="o-message__content-highlight">
+					Read FT articles on the go, offline, and get notifications as stories break with the
+					<span class="o-message__content-highlight-color">
+						mobile app.
+					</span>
+					Get a download link
+				</span>
+			`,
+			ctaActionText: 'Email me a link now',
+			ctaActionHref: 'https://www.ft.com/...',
+			successHtml: `
+				<span class="o-message__content-highlight">
+					Great!
+				</span>
+				We've emailed you a download link.
+			`
+		}
+	};
+}
