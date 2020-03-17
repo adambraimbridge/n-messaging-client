@@ -1,3 +1,5 @@
+import dailyDigestSignUp from '../../../lib/daily-digest';
+
 export function newsletter () {
 	// TODO add logic here
 	// possibly the same link as that used with coronavirus message?
@@ -15,7 +17,5 @@ export function app () {
 }
 
 export function dailyDigest () {
-	// TODO add logic here
-	// reuse logic from existing one-click daily digest
-	return Promise.resolve();
+	return dailyDigestSignUp();
 }

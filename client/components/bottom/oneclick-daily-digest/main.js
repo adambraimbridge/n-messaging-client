@@ -1,4 +1,4 @@
-import signup from './signup';
+import signup from '../../../lib/daily-digest';
 
 export default function (banner, done) {
 	function loadSuccessContent () {

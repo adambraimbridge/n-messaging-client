@@ -78,7 +78,7 @@ function initErrorMessage (banner) {
 
 export default function customSetup (banner, done, guruResult) {
 	// TODO remove this mock when guru is ready with the needed data
-	guruResult = mockGuruData.marketsData();
+	guruResult = mockGuruData.dailyDigest();
 
 	// TODO rethink this, need to cater for:
 	// - gift article, which has JS for action but staying on CTA message and not going to success message
