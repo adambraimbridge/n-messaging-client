@@ -74,6 +74,9 @@ export default function customSetup (banner, done, guruResult) {
 	// TODO remove this mock when guru is ready with the needed data
 	guruResult = mockGuruData.gift();
 
+	// TODO rethink this, need to cater for:
+	// - gift article, which has JS for action but staying on CTA message and not going to success message
+	// question: show the error message if there's a problem with showing the gift article? e.g. not on an article page
 	if (guruResult.isDynamicMessage) {
 		const action = actions[guruResult.messageId];
 		initClickToActionMessage(banner, guruResult, action);
