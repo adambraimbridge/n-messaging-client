@@ -64,11 +64,15 @@ function initErrorMessage (banner) {
 
 export default function customSetup (banner, done, guruResult) {
 	// TODO remove this mock when guru is ready with the needed data
-	guruResult = mockGuruData.newsletter();
+	guruResult = mockGuruData.myFtFeed();
 
-	const action = actions[guruResult.messageId];
-	initClickToActionMessage(banner, guruResult, action);
-	initSuccessMessage(banner, guruResult);
-	initErrorMessage(banner);
+	if (guruResult.isDynamicMessage) {
+		const action = actions[guruResult.messageId];
+		initClickToActionMessage(banner, guruResult, action);
+		initSuccessMessage(banner, guruResult);
+		initErrorMessage(banner);
+	} else {
+		initClickToActionContent(banner, guruResult);
+	}
 	done();
 };
