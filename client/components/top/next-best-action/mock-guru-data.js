@@ -134,3 +134,21 @@ export function fastFt () {
 		}
 	};
 }
+
+export function marketsData () {
+	return {
+		messageId: 'marketsData',
+		renderData: {
+			ctaHtml: `
+				<span class="o-message__content-highlight">
+					Get the latest information on equity, currency, fixed income and commodities, and invest smarter with
+					<span class="o-message__content-highlight-color">
+						Markets Data
+					</span>
+				</span>
+			`,
+			ctaActionText: 'Visit Markets Data now',
+			ctaActionHref: 'https://markets.ft.com/data'
+		}
+	};
+}
