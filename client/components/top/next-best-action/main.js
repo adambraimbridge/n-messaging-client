@@ -2,17 +2,17 @@
 import * as copy from './copy';
 import * as actions from './actions';
 
-function initClickToActionContent (banner, guruResult) {
+function initClickToActionContent (banner, data) {
 	const text = banner.messageElement.querySelector('[data-n-messaging-nba-cta-text]');
-	text.innerHTML = guruResult.renderData.ctaHtml;
+	text.innerHTML = data.renderData.ctaHtml;
 
 	const action = banner.messageElement.querySelector('[data-n-messaging-nba-cta-action]');
-	action.innerText = guruResult.renderData.ctaActionText;
-	const href = guruResult.renderData.ctaActionHref;
+	action.innerText = data.renderData.ctaActionText;
+	const href = data.renderData.ctaActionHref;
 	if (href) {
 		action.setAttribute('href', href);
 	}
-	const icon = guruResult.renderData.ctaActionIcon;
+	const icon = data.renderData.ctaActionIcon;
 	if (icon) {
 		// note: don't forget to add any new icon to the icon list in .scss
 		action.classList.add('o-buttons--primary', 'o-buttons--inverse', 'o-buttons-icon', `o-buttons-icon--${icon}`);
@@ -22,15 +22,15 @@ function initClickToActionContent (banner, guruResult) {
 	content.classList.remove('n-messaging-nba__content--hidden');
 }
 
-function initSuccessContent (banner, guruResult) {
+function initSuccessContent (banner, data) {
 	const text = banner.messageElement.querySelector('[data-n-messaging-nba-success-text]');
-	text.innerHTML = guruResult.renderData.successHtml;
+	text.innerHTML = data.renderData.successHtml;
 
 	const action = banner.messageElement.querySelector('[data-n-messaging-nba-success-action]');
-	const actionText = guruResult.renderData.successActionText;
+	const actionText = data.renderData.successActionText;
 	if (actionText) {
 		action.innerText = actionText;
-		action.setAttribute('href', guruResult.renderData.successActionHref);
+		action.setAttribute('href', data.renderData.successActionHref);
 	} else {
 		// nothing to follow up with
 		action.classList.add('n-messaging-nba__action--hidden');
@@ -48,13 +48,13 @@ function setView (banner, desiredViewId) {
 	});
 }
 
-function initClickToActionMessage (banner, guruResult, action, trackEventAction) {
-	initClickToActionContent(banner, guruResult);
+function initClickToActionMessage (banner, data, action, trackEventAction) {
+	initClickToActionContent(banner, data);
 	function handleClickToAction (evt) {
 		evt.preventDefault();
-		action(guruResult)
+		action(data)
 			.then(function trackSuccess () {
-				trackEventAction('act', guruResult.messageId);
+				trackEventAction('act', data.messageId);
 			})
 			.then(function showSuccessView () {
 				setView(banner, 'success');
@@ -66,8 +66,8 @@ function initClickToActionMessage (banner, guruResult, action, trackEventAction)
 	banner.messageElement.querySelector('[data-n-messaging-nba-cta-action]').addEventListener('click', handleClickToAction);
 }
 
-function initSuccessMessage (banner, guruResult) {
-	initSuccessContent(banner, guruResult);
+function initSuccessMessage (banner, data) {
+	initSuccessContent(banner, data);
 }
 
 function initErrorMessage (banner) {
@@ -80,24 +80,25 @@ function initErrorMessage (banner) {
 }
 
 export default function customSetup (banner, done, guruResult, trackEventAction) {
-	// TODO remove these mock when guru is ready with the needed data
+	// TODO we need messageId and dynamicData (for newsletter) from the guru
+	// here we hardcode it
 	const messageId = 'newsletter';
-	const data = {
+	const dynamicData = {
 		newsletterName: 'Lex - Europe Morning Edition',
 		newsletterId: '5e67775d8bb28f00049b0f76' // note this is ID for the coronavirus newsletter!
 	};
 
-	const messageCopy = copy[messageId](data);
+	const data = copy[messageId](dynamicData);
 
-	if (messageCopy.hasSuccessMessage) {
+	if (data.hasSuccessMessage) {
 		// a more dynamic message with one-click capability, success and error messaging
 		const action = actions[messageId];
-		initClickToActionMessage(banner, messageCopy, action, trackEventAction);
-		initSuccessMessage(banner, messageCopy);
+		initClickToActionMessage(banner, data, action, trackEventAction);
+		initSuccessMessage(banner, data);
 		initErrorMessage(banner);
 	} else {
 		// a more static message with a simple click-to-action link
-		initClickToActionContent(banner, messageCopy);
+		initClickToActionContent(banner, data);
 	}
 	done();
 };
