@@ -58,13 +58,14 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 		if (customSetup.default) {
 			customSetup = customSetup.default; // ESM modules
 		}
-		customSetup(alertBanner, ({ skip=false }={}) => {
+		function customSetupCallback ({ skip=false }={}) {
 			if (skip) {
 				trackEventAction('skip');
 			} else {
 				alertBanner.open();
 			}
-		});
+		}
+		customSetup(alertBanner, customSetupCallback, guruResult, trackEventAction);
 	} else {
 		alertBanner.open();
 	}

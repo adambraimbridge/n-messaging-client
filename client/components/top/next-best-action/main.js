@@ -48,14 +48,18 @@ function setView (banner, desiredViewId) {
 	});
 }
 
-function initClickToActionMessage (banner, guruResult, action) {
+function initClickToActionMessage (banner, guruResult, action, trackEventAction) {
 	initClickToActionContent(banner, guruResult);
 	function handleClickToAction (evt) {
 		evt.preventDefault();
 		action()
-			.then(function actionSuccess () {
+			.then(function trackSuccess () {
+				debugger;
+				trackEventAction('act', guruResult.messageId);
+			})
+			.then(function showSuccessView () {
 				setView(banner, 'success');
-			}).catch(function actionError () {
+			}).catch(function showErrorView () {
 				setView(banner, 'error');
 			});
 		return false;
@@ -76,16 +80,16 @@ function initErrorMessage (banner) {
 	banner.messageElement.querySelector('[data-n-messaging-nba-error-action]').addEventListener('click', handleErrorAction);
 }
 
-export default function customSetup (banner, done, guruResult) {
+export default function customSetup (banner, done, guruResult, trackEventAction) {
 	// TODO remove this mock when guru is ready with the needed data
-	guruResult = mockGuruData.dailyDigest();
+	guruResult = mockGuruData.app();
 
 	// TODO rethink this, need to cater for:
 	// - gift article, which has JS for action but staying on CTA message and not going to success message
 	// question: show the error message if there's a problem with showing the gift article? e.g. not on an article page
 	if (guruResult.isDynamicMessage) {
 		const action = actions[guruResult.messageId];
-		initClickToActionMessage(banner, guruResult, action);
+		initClickToActionMessage(banner, guruResult, action, trackEventAction);
 		initSuccessMessage(banner, guruResult);
 		initErrorMessage(banner);
 	} else {

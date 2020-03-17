@@ -11,8 +11,7 @@ export function gift () {
 }
 
 export function app () {
-	// TODO add logic here
-	// have asked team if there's any HTTP API for sending emails
+	// logic is implemented in the Envoy journey via the action tracking event
 	return Promise.resolve();
 }
 
