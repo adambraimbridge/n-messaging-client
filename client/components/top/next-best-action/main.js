@@ -1,3 +1,7 @@
+// TODO remove this mock when guru is ready with the needed data
+import * as mockGuruData from './mock-guru-data';
+import * as actions from './actions';
+
 function initClickToActionContent (banner, guruResult) {
 	const text = banner.messageElement.querySelector('[data-n-messaging-nba-cta-text]');
 	const action = banner.messageElement.querySelector('[data-n-messaging-nba-cta-action]');
@@ -59,39 +63,10 @@ function initErrorMessage (banner) {
 }
 
 export default function customSetup (banner, done, guruResult) {
-	// TODO get this data from guru
-	const newsletterName = 'Lex - Europe Morning Edition';
-	guruResult = {
-		renderData: {
-			ctaHtml: `
-				<span class="o-message__content-highlight">
-					Get the news you need delivered to your inbox, with the
-					<span class="o-message__content-highlight-color">
-						${newsletterName}
-					</span>
-					newsletter.
-				</span>
-			`,
-			ctaActionText: 'Get the newsletter now',
-			ctaActionHref: 'https://www.ft.com/newsletters',
-			successHtml: `
-				<span class="o-message__content-highlight">
-					Great!
-				</span>
-				You're all signed up for the
-				<span class="o-message__content-highlight">
-					${newsletterName}.
-				</span>
-				Get more news delivered direct to your inbox with our other newsletters
-			`,
-			successActionText: 'Browse all newsletters',
-			successActionHref: 'https://www.ft.com/newsletters'
-		}
-	};
-	// TODO get the CTA action for this message from elsewhere (lib?)
-	function action () {
-		return Promise.resolve();
-	}
+	// TODO remove this mock when guru is ready with the needed data
+	guruResult = mockGuruData.newsletter();
+
+	const action = actions[guruResult.messageId];
 	initClickToActionMessage(banner, guruResult, action);
 	initSuccessMessage(banner, guruResult);
 	initErrorMessage(banner);
