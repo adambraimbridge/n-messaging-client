@@ -1,9 +1,13 @@
 import dailyDigestSignUp from '../../../lib/daily-digest';
 
-export function newsletter () {
-	// TODO add logic here
-	// possibly the same link as that used with coronavirus message?
-	return Promise.resolve();
+export function newsletter (guruResult) {
+	const url = guruResult.renderData.ctaActionHref;
+	return fetch(url)
+		.then(function handleResponse (res) {
+			if (!res.ok) {
+				throw new Error('could not subscribe to newsletter');
+			}
+		});
 }
 
 export function gift () {

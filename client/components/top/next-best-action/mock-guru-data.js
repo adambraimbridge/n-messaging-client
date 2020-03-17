@@ -1,5 +1,6 @@
 export function newsletter () {
 	const newsletterName = 'Lex - Europe Morning Edition';
+	const newsletterId = '5e67775d8bb28f00049b0f76'; // note this is ID for the coronavirus newsletter!
 	return {
 		messageId: 'newsletter',
 		isDynamicMessage: true,
@@ -14,7 +15,7 @@ export function newsletter () {
 				</span>
 			`,
 			ctaActionText: 'Get the newsletter now',
-			ctaActionHref: 'https://www.ft.com/newsletters',
+			ctaActionHref: `https://ep.ft.com/newsletters/${newsletterId}/subscribe`,
 			successHtml: `
 				<span class="o-message__content-highlight">
 					Great!
