@@ -1,18 +1,20 @@
-// FIXME move this into n-messaging-nba and rename pikachu to slate-lemon
-@include oMessageAddState(
-	$name: 'pikachu',
-	$opts: (
-	'background-color': 'slate',
-	'foreground-color': 'white',
-	'highlight-color': 'lemon',
-	'button-type': 'primary'
-), $types: ('action'));
-
 .n-messaging-nba {
+
+	// note: this needs greater specificity than oButtons mixin below (to override inverse theme)
+	@include oMessageAddState(
+		$name: 'slate-lemon',
+		$opts: (
+		'background-color': 'slate',
+		'foreground-color': 'white',
+		'highlight-color': 'lemon',
+		'button-type': 'primary'
+	), $types: ('action'));
+
+	// icon in the click-to-action button
 	@include oButtons($opts: (
 		'sizes': (),
 		'types': ('primary'),
-		'themes': ('inverse'),
+		'themes': ('inverse'), // yields a white icon which goes nicely with slate-lemon theme
 		'icons': ('share'),
 		'pagination': false,
 		'groups': false
