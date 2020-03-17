@@ -38,7 +38,14 @@ export function myFtFeed () {
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
-					Explore your myFT feed now
+					<span class="o-message__content-highlight-color">
+						myFT
+					</span>
+					is a dedicated place to add topics to create your
+					<span class="o-message__content-highlight-color">
+						personalised feed
+					</span>
+					of stories
 				</span>
 			`,
 			ctaActionText: 'Explore your myFT feed now',
@@ -98,7 +105,7 @@ export function dailyDigest () {
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
-					Get a summary of your followed topics with the
+					Get a summary of the latest news you follow straight to your inbox, with the
 					<span class="o-message__content-highlight-color">
 						myFT daily Email Digest
 					</span>
