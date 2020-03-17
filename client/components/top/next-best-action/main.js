@@ -1,5 +1,5 @@
 // TODO remove this mock when guru is ready with the needed data
-import * as mockGuruData from './mock-guru-data';
+import * as copy from './copy';
 import * as actions from './actions';
 
 function initClickToActionContent (banner, guruResult) {
@@ -80,16 +80,24 @@ function initErrorMessage (banner) {
 }
 
 export default function customSetup (banner, done, guruResult, trackEventAction) {
-	// TODO remove this mock when guru is ready with the needed data
-	guruResult = mockGuruData.newsletter();
+	// TODO remove these mock when guru is ready with the needed data
+	const messageId = 'newsletter';
+	const data = {
+		newsletterName: 'Lex - Europe Morning Edition',
+		newsletterId: '5e67775d8bb28f00049b0f76' // note this is ID for the coronavirus newsletter!
+	};
 
-	if (guruResult.isDynamicMessage) {
-		const action = actions[guruResult.messageId];
-		initClickToActionMessage(banner, guruResult, action, trackEventAction);
-		initSuccessMessage(banner, guruResult);
+	const messageCopy = copy[messageId](data);
+
+	if (messageCopy.hasSuccessMessage) {
+		// a more dynamic message with one-click capability, success and error messaging
+		const action = actions[messageId];
+		initClickToActionMessage(banner, messageCopy, action, trackEventAction);
+		initSuccessMessage(banner, messageCopy);
 		initErrorMessage(banner);
 	} else {
-		initClickToActionContent(banner, guruResult);
+		// a more static message with a simple click-to-action link
+		initClickToActionContent(banner, messageCopy);
 	}
 	done();
 };

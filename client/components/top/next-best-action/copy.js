@@ -1,9 +1,6 @@
-export function newsletter () {
-	const newsletterName = 'Lex - Europe Morning Edition';
-	const newsletterId = '5e67775d8bb28f00049b0f76'; // note this is ID for the coronavirus newsletter!
+export function newsletter ({ newsletterName, newsletterId }) {
 	return {
-		messageId: 'newsletter',
-		isDynamicMessage: true,
+		hasSuccessMessage: true,
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -34,7 +31,6 @@ export function newsletter () {
 
 export function myFtFeed () {
 	return {
-		messageId: 'myFtFeed',
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -56,7 +52,6 @@ export function myFtFeed () {
 
 export function gift () {
 	return {
-		messageId: 'gift',
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -74,8 +69,7 @@ export function gift () {
 
 export function app () {
 	return {
-		messageId: 'app',
-		isDynamicMessage: true,
+		hasSuccessMessage: true,
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -100,8 +94,7 @@ export function app () {
 
 export function dailyDigest () {
 	return {
-		messageId: 'dailyDigest',
-		isDynamicMessage: true,
+		hasSuccessMessage: true,
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -127,7 +120,6 @@ export function dailyDigest () {
 
 export function fastFt () {
 	return {
-		messageId: 'fastFt',
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -145,7 +137,6 @@ export function fastFt () {
 
 export function marketsData () {
 	return {
-		messageId: 'marketsData',
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
