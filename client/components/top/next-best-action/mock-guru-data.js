@@ -89,3 +89,30 @@ export function app () {
 		}
 	};
 }
+
+export function dailyDigest () {
+	return {
+		messageId: 'dailyDigest',
+		isDynamicMessage: true,
+		renderData: {
+			ctaHtml: `
+				<span class="o-message__content-highlight">
+					Get a summary of your followed topics with the
+					<span class="o-message__content-highlight-color">
+						myFT daily Email Digest
+					</span>
+				</span>
+			`,
+			ctaActionText: 'Sign up to Email Digest now',
+			ctaActionHref: 'https://www.ft.com/myft/alerts/',
+			successHtml: `
+				<span class="o-message__content-highlight">
+					Great!
+				</span>
+				You're all signed up for the myFT daily Email Digest. Get more news delivered direct to your inbox with our email newsletters
+			`,
+			successActionText: 'Browse newsletters',
+			successActionHref: 'https://www.ft.com/newsletters'
+		}
+	};
+}

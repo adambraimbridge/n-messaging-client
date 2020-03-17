@@ -13,3 +13,9 @@ export function app () {
 	// have asked team if there's any HTTP API for sending emails
 	return Promise.resolve();
 }
+
+export function dailyDigest () {
+	// TODO add logic here
+	// reuse logic from existing one-click daily digest
+	return Promise.resolve();
+}
