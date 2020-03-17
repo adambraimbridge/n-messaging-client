@@ -116,3 +116,21 @@ export function dailyDigest () {
 		}
 	};
 }
+
+export function fastFt () {
+	return {
+		messageId: 'fastFt',
+		renderData: {
+			ctaHtml: `
+				<span class="o-message__content-highlight">
+					See a live feed of market-moving news with informed content, 24 hours a day at
+					<span class="o-message__content-highlight-color">
+						fastFT
+					</span>
+				</span>
+			`,
+			ctaActionText: 'Visit fastFT now',
+			ctaActionHref: 'https://www.ft.com/fastft'
+		}
+	};
+}
