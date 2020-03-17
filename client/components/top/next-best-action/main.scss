@@ -1,3 +1,4 @@
+// FIXME move this into n-messaging-nba and rename pikachu to slate-lemon
 @include oMessageAddState(
 	$name: 'pikachu',
 	$opts: (
@@ -8,6 +9,15 @@
 ), $types: ('action'));
 
 .n-messaging-nba {
+	@include oButtons($opts: (
+		'sizes': (),
+		'types': ('primary'),
+		'themes': ('inverse'),
+		'icons': ('share'),
+		'pagination': false,
+		'groups': false
+	));
+
 	.n-messaging-nba__content {
 		&--placeholder {
 			visibility: hidden;

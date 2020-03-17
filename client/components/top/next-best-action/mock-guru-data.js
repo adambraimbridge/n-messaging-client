@@ -29,12 +29,11 @@ export function newsletter () {
 			successActionHref: 'https://www.ft.com/newsletters'
 		}
 	};
-};
+}
 
 export function myFtFeed () {
 	return {
 		messageId: 'myFtFeed',
-		isDynamicMessage: false,
 		renderData: {
 			ctaHtml: `
 				<span class="o-message__content-highlight">
@@ -45,4 +44,22 @@ export function myFtFeed () {
 			ctaActionHref: 'https://www.ft.com/myft'
 		}
 	};
-};
+}
+
+export function gift () {
+	return {
+		messageId: 'gift',
+		renderData: {
+			ctaHtml: `
+				<span class="o-message__content-highlight">
+					Share this article with friends, family or colleagues, using
+					<span class="o-message__content-highlight-color">
+						Gift Articles
+					</span>
+				</span>
+			`,
+			ctaActionText: 'Gift this article now',
+			ctaActionIcon: 'share'
+		}
+	};
+}

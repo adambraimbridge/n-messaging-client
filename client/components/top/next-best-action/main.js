@@ -8,7 +8,15 @@ function initClickToActionContent (banner, guruResult) {
 
 	text.innerHTML = guruResult.renderData.ctaHtml;
 	action.innerText = guruResult.renderData.ctaActionText;
-	action.setAttribute('href', guruResult.renderData.ctaActionHref);
+	const href = guruResult.renderData.ctaActionHref;
+	if (href) {
+		action.setAttribute('href', href);
+	}
+	const icon = guruResult.renderData.ctaActionIcon;
+	if (icon) {
+		// note: don't forget to add any new icon to the icon list in .scss
+		action.classList.add('o-buttons--primary', 'o-buttons--inverse', 'o-buttons-icon', `o-buttons-icon--${icon}`);
+	}
 
 	const content = banner.messageElement.querySelector('[data-n-messaging-nba-actual-content]');
 	content.classList.remove('n-messaging-nba__content--hidden');
@@ -64,7 +72,7 @@ function initErrorMessage (banner) {
 
 export default function customSetup (banner, done, guruResult) {
 	// TODO remove this mock when guru is ready with the needed data
-	guruResult = mockGuruData.myFtFeed();
+	guruResult = mockGuruData.gift();
 
 	if (guruResult.isDynamicMessage) {
 		const action = actions[guruResult.messageId];
