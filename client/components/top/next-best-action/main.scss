@@ -7,7 +7,7 @@
 	'button-type': 'primary'
 ), $types: ('action'));
 
-.o-message.n-messaging-nba {
+.n-messaging-nba {
 	.n-messaging-nba__content {
 		&--placeholder {
 			visibility: hidden;
@@ -20,5 +20,8 @@
 			display: none;
 		}
 
+	}
+	.n-messaging-nba__view--hidden {
+		display: none;
 	}
 }
