@@ -81,12 +81,12 @@ export function app () {
 				</span>
 			`,
 			ctaActionText: 'Email me a link now',
-			ctaActionHref: 'https://www.ft.com/...',
+			ctaActionHref: 'https://www.ft.com/tour/apps',
 			successHtml: `
 				<span class="o-message__content-highlight">
 					Great!
 				</span>
-				We've emailed you a download link.
+				We've emailed you a download link. Look out for an email from us, shortly.
 			`
 		}
 	};
