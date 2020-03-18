@@ -151,6 +151,7 @@ module.exports = {
 		path: 'bottom/coronavirus-newsletter-promo'
 	},
 	nextBestAction: {
-		path: 'top/next-best-action'
+		path: 'top/next-best-action',
+		lazy: true
 	}
 };

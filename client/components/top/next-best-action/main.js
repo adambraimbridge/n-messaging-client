@@ -76,26 +76,19 @@ function initErrorMessage (banner) {
 	banner.messageElement.querySelector('[data-n-messaging-nba-error-action]').addEventListener('click', handleErrorAction);
 }
 
-export default function customSetup (banner, done, guruResult, trackEventAction) {
-	// TODO we need messageId and dynamicData (for newsletter) from the guru
-	// here we hardcode it
-	const messageId = 'newsletter';
-	const dynamicData = {
-		newsletterName: 'Lex - Europe Morning Edition',
-		newsletterId: '5e67775d8bb28f00049b0f76' // note this is ID for the coronavirus newsletter!
-	};
+export default function customSetup (banner, done, guruResult) {
+	const guruData = guruResult.renderData;
+	const allData = copy[guruData.nbaMessageId](guruData);
 
-	const data = copy[messageId](dynamicData);
-
-	if (data.hasSuccessMessage) {
+	if (allData.hasSuccessMessage) {
 		// a more dynamic message with one-click capability, success and error messaging
-		const action = actions[messageId];
-		initClickToActionMessage(banner, data, action, trackEventAction);
-		initSuccessMessage(banner, data);
+		const action = actions[guruData.nbaMessageId];
+		initClickToActionMessage(banner, allData, action);
+		initSuccessMessage(banner, allData);
 		initErrorMessage(banner);
 	} else {
-		// a more static message with a simple click-to-action link
-		initClickToActionContent(banner, data);
+		// a less dynamic message with a simple click-to-action link
+		initClickToActionContent(banner, allData);
 	}
 	done();
 };
