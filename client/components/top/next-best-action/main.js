@@ -48,14 +48,11 @@ function setView (banner, desiredViewId) {
 	});
 }
 
-function initClickToActionMessage (banner, data, action, trackEventAction) {
+function initClickToActionMessage (banner, data, action) {
 	initClickToActionContent(banner, data);
 	function handleClickToAction (evt) {
 		evt.preventDefault();
 		action(data)
-			.then(function trackSuccess () {
-				trackEventAction('act', data.messageId);
-			})
 			.then(function showSuccessView () {
 				setView(banner, 'success');
 			}).catch(function showErrorView () {

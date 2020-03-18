@@ -81,7 +81,7 @@ module.exports = function ({ config={}, guruResult, customSetup }={}) {
 				alertBanner.open();
 			}
 		}
-		customSetup(alertBanner, customSetupCallback, guruResult, trackEventAction);
+		customSetup(alertBanner, customSetupCallback, guruResult);
 	} else {
 		alertBanner.open();
 	}
