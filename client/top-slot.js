@@ -9,11 +9,27 @@ const ALERT_BANNER_LINK_SELECTOR = `.${ALERT_BANNER_CLASS}__link`;
 
 const TOP_SLOT_FLAG = 'messageSlotTop';
 
+function getServerRenderedBanner(config, guruResult) {
+	if (!config.lazy && config.content) {
+		// server-side rendered banner
+		return config.content;
+	} else if (config.lazy && guruResult && guruResult.renderData
+			&& guruResult.renderData.reservedSpace) {
+		// a hybrid of server-side and client-side solution:
+		// this has reserved space on the page (to prevent "jerky" page loading)
+		// and we populate this space with lazily-fetched content
+		return config.content;
+	} else {
+		// client-side rendered banner
+		return null;
+	}
+}
+
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
 	const variant = (guruResult && guruResult.renderData && guruResult.renderData.dynamicTrackingData) || config.name;
 	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: variant, flag: TOP_SLOT_FLAG });
-	const declarativeElement = !config.lazy && config.content;
+	const declarativeElement = getServerRenderedBanner(config, guruResult);
 	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: message.getDataAttributes(declarativeElement).close};
 
 	if (declarativeElement) {
