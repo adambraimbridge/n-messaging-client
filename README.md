@@ -144,6 +144,19 @@ When you are ready to ship the best method is to: Remove the variant from the fl
 
 If you need to turn a message off in production quickly, simply remove the variant from the flag.
 
+### Images
+
+To use images in your messages, upload them to [the `messages` bucket in S3](https://s3.console.aws.amazon.com/s3/buckets/ft-next-assets-prod/assets/messages/?region=eu-west-1). The only settings you need to change are the following:
+
++ Manage public permissions: Grant public read access to this object
++ Set permissions - Set the following headers:
+	- `Content-Type`: `image/png` / `image/jpeg` (depending on the image being uploaded)
+	- `Cache-Control`: `public, max-age=31536000` (1 year)
+
+The image should now be available at https://www.ft.com/__assets/creatives/messages/YOUR_IMAGE.png
+
+For bonus points, please run this image through the [Origami Image Service URL builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder).
+
 ### Migration
 
 #### v4.5 to v5.0
