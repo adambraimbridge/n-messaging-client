@@ -147,7 +147,11 @@ module.exports = {
 	coronavirusNewsletterPromo: {
 		path: 'bottom/coronavirus-newsletter-promo'
 	},
+	coronavirusNewsletterPromoTop: {
+		path: 'top/coronavirus-newsletter-promo-top'
+	},
 	kpmgLicence: {
 		path: 'bottom/kpmg-licence'
 	},
+
 };
