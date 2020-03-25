@@ -26,6 +26,7 @@
 
 	.n-message-notice__image {
 		display: none;
+		vertical-align: top;
 
 		@include oGridRespondTo(M) {
 			display: inline-block;
