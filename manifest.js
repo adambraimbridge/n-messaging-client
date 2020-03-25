@@ -153,5 +153,7 @@ module.exports = {
 	kpmgLicence: {
 		path: 'bottom/kpmg-licence'
 	},
-
+	tbybPostTrialSubscribe: {
+		path: 'bottom/tbyb-post-trial-subscribe'
+	},
 };
