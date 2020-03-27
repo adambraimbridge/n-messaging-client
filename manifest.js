@@ -156,4 +156,7 @@ module.exports = {
 	tbybInTrialSubscribe: {
 		path: 'bottom/tbyb-in-trial-subscribe'
 	},
+	tbybPostTrialSubscribe: {
+		path: 'bottom/tbyb-post-trial-subscribe'
+	},
 };
