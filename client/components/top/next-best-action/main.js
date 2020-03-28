@@ -47,13 +47,14 @@ function setView (banner, desiredViewId) {
 	});
 }
 
-function initClickToActionMessage (banner, data, action) {
-	initClickToActionContent(banner, data);
+function initClickToAction (banner, data, action, hasSuccessMessage) {
 	function handleClickToAction (evt) {
 		evt.preventDefault();
 		action(data)
 			.then(function showSuccessView () {
-				setView(banner, 'success');
+				if (hasSuccessMessage) {
+					setView(banner, 'success');
+				}
 			}).catch(function showErrorView () {
 				setView(banner, 'error');
 			});
@@ -62,8 +63,6 @@ function initClickToActionMessage (banner, data, action) {
 	banner.messageElement.querySelector('[data-n-messaging-nba-cta-action]').addEventListener('click', handleClickToAction);
 }
 
-function initSuccessMessage (banner, data) {
-	initSuccessContent(banner, data);
 function initCloseAction (banner) {
 	function handleClickToClose (evt) {
 		evt.preventDefault();
@@ -86,16 +85,18 @@ export default function customSetup (banner, done, guruResult) {
 	const guruData = guruResult.renderData;
 	const allData = copy[guruData.nbaMessageId](guruData);
 
+	initClickToActionContent(banner, allData);
+
+	const action = actions[guruData.nbaMessageId];
 	if (allData.hasSuccessMessage) {
-		// a more dynamic message with one-click capability, success and error messaging
-		const action = actions[guruData.nbaMessageId];
-		initClickToActionMessage(banner, allData, action);
-		initSuccessMessage(banner, allData);
+		// dynamic click-to-action with success/follow-up messaging
+		initClickToAction(banner, allData, action, true);
+		initSuccessContent(banner, allData);
 		initCloseAction(banner);
 		initErrorMessage(banner);
-	} else {
-		// a less dynamic message with a simple click-to-action link
-		initClickToActionContent(banner, allData);
+	} else if (action) {
+		// dynamic click-to-action without any success/follow-up messaging (e.g. show gift modal)
+		initClickToAction(banner, allData, action, false);
 	}
 	done();
 };
