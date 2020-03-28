@@ -39,7 +39,6 @@
 		&--hidden {
 			display: none;
 		}
-
 	}
 
 	.n-messaging-nba__view--hidden,
@@ -61,6 +60,14 @@
 		&.o-buttons-icon--share {
 			background-position-x: 20px;
 			padding-left: 39px;
+		}
+	}
+
+	// additional classes because of specificity
+	.o-message.o-message--success .n-messaging-nba__close {
+		right: 5px;
+		@include oGridRespondTo($from: M) {
+			right: 13px;
 		}
 	}
 }
