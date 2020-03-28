@@ -9,7 +9,7 @@ const ALERT_BANNER_LINK_SELECTOR = `.${ALERT_BANNER_CLASS}__link`;
 
 const TOP_SLOT_FLAG = 'messageSlotTop';
 
-function getServerRenderedBanner(config, guruResult) {
+function getServerRenderedBanner (config, guruResult) {
 	if (!config.lazy && config.content) {
 		// server-side rendered banner
 		return config.content;
