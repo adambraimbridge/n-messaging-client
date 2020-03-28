@@ -17,7 +17,8 @@ module.exports = {
 			'5f60b8b4-cbf0-18d7-df41-9caa1171e8c1', // templates/partials/top/anon-subscribe-now.html:5|18
 			'a44c9005-2a9c-fe2a-9140-1311ff87f25f', // templates/partials/top/print-banner-usa.html:4
 			'79c8c0c5-1686-7f28-3aeb-c14688d59749', // templates/partials/top/uk-election.html:4
-			'5e67775d8bb28f00049b0f76' // client/components/top/next-best-action/mock-guru-data
+			'5e67775d8bb28f00049b0f76', // client/components/top/next-best-action/mock-guru-data
+			'5a2ecc7c-f349-715e-f2c4-ce657532f71c' // templates/components/o-message.html:23
 		]
 	}
 };

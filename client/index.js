@@ -41,8 +41,7 @@ module.exports = {
 		try {
 			if (path) return require(`./components/${path}/main`);
 		} catch (error) {
-			// Not all variants have a custom setup files and therefore this prevents an error being throw
-			console.warn(error); // eslint-disable-line no-console
+			// Not all variants have a custom setup file and therefore this prevents an error being thrown
 			return;
 		}
 	},
