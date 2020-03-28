@@ -46,4 +46,14 @@
 	.n-messaging-nba__action--hidden {
 		display: none;
 	}
+
+	.n-messaging-nba__cta {
+		// UX: more horizontal padding with the CTA buttons
+		padding-left: 25px;
+		padding-right: 25px;
+		&.o-buttons-icon--share {
+			background-position-x: 20px;
+			padding-left: 39px;
+		}
+	}
 }
