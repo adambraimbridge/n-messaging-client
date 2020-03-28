@@ -1,4 +1,3 @@
-// TODO remove this mock when guru is ready with the needed data
 import * as copy from './copy';
 import * as actions from './actions';
 
