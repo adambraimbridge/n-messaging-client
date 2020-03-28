@@ -47,6 +47,13 @@
 		display: none;
 	}
 
+	.n-messaging-nba__actions {
+		@include oGridRespondTo($until: XL) {
+			// UX: separate line to the CTA button
+			display: block;
+		}
+	}
+
 	.n-messaging-nba__cta {
 		// UX: more horizontal padding with the CTA buttons
 		padding-left: 25px;
