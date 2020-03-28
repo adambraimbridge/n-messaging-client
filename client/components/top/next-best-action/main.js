@@ -64,6 +64,13 @@ function initClickToActionMessage (banner, data, action) {
 
 function initSuccessMessage (banner, data) {
 	initSuccessContent(banner, data);
+function initCloseAction (banner) {
+	function handleClickToClose (evt) {
+		evt.preventDefault();
+		setView(banner, 'none');
+		return false;
+	}
+	banner.messageElement.querySelector('[data-n-messaging-nba-close-action]').addEventListener('click', handleClickToClose);
 }
 
 function initErrorMessage (banner) {
@@ -84,6 +91,7 @@ export default function customSetup (banner, done, guruResult) {
 		const action = actions[guruData.nbaMessageId];
 		initClickToActionMessage(banner, allData, action);
 		initSuccessMessage(banner, allData);
+		initCloseAction(banner);
 		initErrorMessage(banner);
 	} else {
 		// a less dynamic message with a simple click-to-action link
