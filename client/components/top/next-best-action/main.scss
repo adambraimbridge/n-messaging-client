@@ -20,6 +20,14 @@
 		'groups': false
 	));
 
+	.n-messaging-nba__container {
+		@include oGridRespondTo($from: M) {
+			// align text with rest of FT.com content
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
 	.n-messaging-nba__content {
 		&--placeholder {
 			visibility: hidden;
