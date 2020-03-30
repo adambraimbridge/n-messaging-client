@@ -12,6 +12,7 @@ export function newsletter (guruResult) {
 
 export function gift () {
 	document.querySelector('.js-gift-article').dispatchEvent(new Event('click'));
+	return Promise.resolve();
 }
 
 export function app () {

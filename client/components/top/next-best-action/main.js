@@ -54,6 +54,8 @@ function initClickToAction (banner, data, action, hasSuccessMessage) {
 			.then(function showSuccessView () {
 				if (hasSuccessMessage) {
 					setView(banner, 'success');
+				} else {
+					setView(banner, 'none');
 				}
 			}).catch(function showErrorView () {
 				setView(banner, 'error');
