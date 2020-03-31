@@ -1,4 +1,4 @@
-export function newsletter ({ newsletterName, newsletterId }) {
+export function newsletter ({ newsletterName, newsletterSubscribeUrl }) {
 	return {
 		hasSuccessMessage: true,
 		renderData: {
@@ -12,7 +12,7 @@ export function newsletter ({ newsletterName, newsletterId }) {
 				</span>
 			`,
 			ctaActionText: 'Get the newsletter now',
-			ctaActionHref: `https://ep.ft.com/newsletters/${newsletterId}/subscribe`,
+			ctaActionHref: newsletterSubscribeUrl,
 			successHtml: `
 				<span class="o-message__content-highlight">
 					Great!
