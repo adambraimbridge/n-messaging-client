@@ -1,3 +1,10 @@
+/**
+ * This contains the copy for each of the different NBA (Next Best
+ * Action) messages with some dynamic content. The reason these are
+ * in here and not the guru is we want to keep NBA-related HTML/CSS/JS
+ * all in one place instead of 2 or 3 places.
+ */
+
 export function newsletter ({ newsletterName, newsletterSubscribeUrl }) {
 	return {
 		hasSuccessMessage: true,

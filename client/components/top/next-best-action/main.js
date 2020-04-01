@@ -1,6 +1,15 @@
 import * as copy from './copy';
 import * as actions from './actions';
 
+/**
+ * Worth noting that this message is more dynamic than other messages
+ * in n-messaging-client in that it changes to a success or an error
+ * message depending on the outcome of the click-to-action. E.g.
+ * subscribe to newsletter: if successful, show message to more
+ * newsletters. If unsuccessful, show an error message with an option
+ * to attempt again.
+ */
+
 function initClickToActionContent (banner, data) {
 	const text = banner.messageElement.querySelector('[data-n-messaging-nba-cta-text]');
 	text.innerHTML = data.renderData.ctaHtml;
