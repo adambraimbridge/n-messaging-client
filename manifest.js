@@ -28,9 +28,6 @@ module.exports = {
 	paymentFailure: {
 		path: 'top/payment-failure'
 	},
-	teamTrial: {
-		path: 'bottom/team-trial'
-	},
 	anonSubscribeNow: {
 		path: 'top/anon-subscribe-now'
 	},
@@ -146,5 +143,20 @@ module.exports = {
 	},
 	usElection2020Promo: {
 		path: 'bottom/us-election-2020-promo'
-	}
+	},
+	coronavirusNewsletterPromo: {
+		path: 'bottom/coronavirus-newsletter-promo'
+	},
+	coronavirusNewsletterPromoTop: {
+		path: 'top/coronavirus-newsletter-promo-top'
+	},
+	kpmgLicence: {
+		path: 'bottom/kpmg-licence'
+	},
+	tbybInTrialSubscribe: {
+		path: 'bottom/tbyb-in-trial-subscribe'
+	},
+	tbybPostTrialSubscribe: {
+		path: 'bottom/tbyb-post-trial-subscribe'
+	},
 };
