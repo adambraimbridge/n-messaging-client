@@ -162,5 +162,9 @@ module.exports = {
 	},
 	tbybPostTrialSubscribe: {
 		path: 'bottom/tbyb-post-trial-subscribe'
+	},
+	newsletterModelPromo: {
+		path: 'bottom/newsletter-model-promo',
+		lazy: true
 	}
 };
