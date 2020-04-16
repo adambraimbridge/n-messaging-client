@@ -1,0 +1,57 @@
+<div class="n-messaging-nba" data-n-messaging-component>
+
+	<!-- click-to-action (CTA) view -->
+	<div class="o-message o-message--action o-message--slate-lemon" data-o-component="o-message" data-n-messaging-nba-view="cta">
+		<div class="o-message__container n-messaging-nba__container">
+			<!-- placeholder & invisible content rendered server-side to take up space -->
+			<div class="o-message__content n-messaging-nba__content--placeholder">
+				<p class="o-message__content-main">
+					<span class="o-message__content-highlight">
+						Get the latest information on equity, currency, fixed income and commodities, and invest smarter with
+						<span class="o-message__content-highlight-color">
+							Markets Data
+						</span>
+					</span>
+				</p>
+				<div class="o-message__actions n-messaging-nba__actions">
+					<a href="#" class="o-message__actions__primary n-messaging-nba__cta">Visit Markets Data now</a>
+				</div>
+			</div>
+			<!-- actual content to be loaded & rendered client-side -->
+			<div class="o-message__content n-messaging-nba__content--actual n-messaging-nba__content--hidden" data-n-messaging-nba-actual-content>
+				<p class="o-message__content-main" data-n-messaging-nba-cta-text></p>
+				<div class="o-message__actions n-messaging-nba__actions">
+					<a href="#" class="o-message__actions__primary n-messaging-nba__cta" data-o-message-action data-n-messaging-nba-cta-action></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- success view -->
+	<div class="o-message o-message--alert o-message--success n-messaging-nba__view--hidden" data-o-component="o-message" data-n-messaging-nba-view="success">
+		<div class="o-message__container n-messaging-nba__container">
+			<div class="o-message__content">
+				<p class="o-message__content-main" data-n-messaging-nba-success-text></p>
+				<div class="o-message__actions n-messaging-nba__actions">
+					<a href="#" class="o-message__actions__primary" data-n-messaging-nba-success-action></a>
+				</div>
+			</div>
+			<button class="o-message__close n-messaging-nba__close" aria-label="close" title="Close" data-n-messaging-nba-close-action></button>
+		</div>
+	</div>
+
+	<!-- error view -->
+	<div class="o-message o-message--alert o-message--error n-messaging-nba__view--hidden" data-o-component="o-message" data-n-messaging-nba-view="error">
+		<div class="o-message__container n-messaging-nba__container">
+			<div class="o-message__content">
+				<p class="o-message__content-main">
+					<span class="o-message__content-highlight">Sorry!</span>
+					Something has gone wrong. We aren't able to complete the last action. Let's try it again.
+				</p>
+				<div class="o-message__actions">
+					<a href="#" class="o-message__actions__secondary" data-n-messaging-nba-error-action>Go back to previous message</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

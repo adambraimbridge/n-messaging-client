@@ -145,6 +145,10 @@ module.exports = {
 	coronavirusNewsletterPromo: {
 		path: 'bottom/coronavirus-newsletter-promo'
 	},
+	nextBestAction: {
+		path: 'top/next-best-action',
+		lazy: true
+	},
 	coronavirusNewsletterPromoTop: {
 		path: 'top/coronavirus-newsletter-promo-top'
 	},
@@ -156,5 +160,5 @@ module.exports = {
 	},
 	tbybPostTrialSubscribe: {
 		path: 'bottom/tbyb-post-trial-subscribe'
-	},
+	}
 };
