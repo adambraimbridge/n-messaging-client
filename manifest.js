@@ -21,9 +21,7 @@ module.exports = {
 	marketingPopupPrompt: {
 		path: 'bottom/lazy',
 		lazy: true,
-		// Temporary 25% off offer. Related to priceIncreaseTest2020 work.
-		guruQueryString: 'offerId=2a6a4586-ace0-6465-aebe-aa1ecc543271'
-		// guruQueryString: 'offerId=c1773439-53dc-df3d-9acc-20ce2ecde318'
+		guruQueryString: 'offerId=d6b1bd32-1bd6-368b-78c5-62793ee43e7a'
 	},
 	paymentFailure: {
 		path: 'top/payment-failure'
