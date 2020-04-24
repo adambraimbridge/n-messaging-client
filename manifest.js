@@ -21,19 +21,31 @@ module.exports = {
 	marketingPopupPrompt: {
 		path: 'bottom/lazy',
 		lazy: true,
-		guruQueryString: 'offerId=d6b1bd32-1bd6-368b-78c5-62793ee43e7a'
+		guruQueryString: 'offerId=d6b1bd32-1bd6-368b-78c5-62793ee43e7a',
+		trackingContext: {
+			opportunity_type: 'marketingPrompt',
+			opportunity_subtype: 'discount_33%off'
+		}
 	},
 	paymentFailure: {
 		path: 'top/payment-failure'
 	},
 	anonSubscribeNow: {
-		path: 'top/anon-subscribe-now'
+		path: 'top/anon-subscribe-now',
+		trackingContext: {
+			opportunity_type: 'marketingPrompt',
+			opportunity_subtype: 'top_trial_splitter'
+		}
 	},
 	ukElection: {
 		path: 'top/uk-election'
 	},
 	printBannerUsa: {
-		path: 'top/print-banner-usa'
+		path: 'top/print-banner-usa',
+		trackingContext: {
+			opportunity_type: 'marketingPrompt',
+			opportunity_subtype: 'top_trial_splitter_US'
+		}
 	},
 	navAccountSettings: {
 		path: 'top/nav-account-settings',
