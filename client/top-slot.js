@@ -28,7 +28,13 @@ function getServerRenderedBanner (config, guruResult) {
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let alertBanner;
 	const variant = (guruResult && guruResult.renderData && guruResult.renderData.dynamicTrackingData) || config.name;
-	const trackEventAction = config.name && generateMessageEvent({ messageId: config.name, position: config.slot, variant: variant, flag: TOP_SLOT_FLAG });
+	const trackEventAction = config.name && generateMessageEvent({
+		flag: TOP_SLOT_FLAG,
+		messageId: config.name,
+		position: config.slot,
+		trackingContext: config.trackingContext,
+		variant: variant
+	});
 	const declarativeElement = getServerRenderedBanner(config, guruResult);
 	const options = { messageClass: ALERT_BANNER_CLASS, autoOpen: false, close: message.getDataAttributes(declarativeElement).close};
 

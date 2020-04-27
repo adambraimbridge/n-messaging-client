@@ -16,7 +16,8 @@ module.exports = {
 				path: variant.path,
 				component: variant.component,
 				lazy: variant.lazy,
-				guruQueryString: variant.guruQueryString
+				guruQueryString: variant.guruQueryString,
+				trackingContext: variant.trackingContext
 			};
 		});
 		if (messages.length > 0) {
