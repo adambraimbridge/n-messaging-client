@@ -86,7 +86,7 @@ function showAboutTooltip (banner) {
 	});
 
 
-	if (flagsClient.get('MyFT_DisengagedTooltipsTest')) {
+	if (flagsClient.get('predictedToDisengageCohort')) {
 		const tooltip = new Tooltip(articleAddToMyftButton, {
 			target: 'myft-disengaged-tooltip',
 			content: content,
