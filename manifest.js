@@ -164,9 +164,6 @@ module.exports = {
 	coronavirusNewsletterPromoTop: {
 		path: 'top/coronavirus-newsletter-promo-top'
 	},
-	kpmgLicence: {
-		path: 'bottom/kpmg-licence'
-	},
 	tbybInTrialSubscribe: {
 		path: 'bottom/tbyb-in-trial-subscribe'
 	},
