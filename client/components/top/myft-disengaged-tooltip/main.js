@@ -2,12 +2,13 @@ import Tooltip from 'o-tooltip';
 import myftClient from 'next-myft-client/myft-bower';
 import {broadcast} from 'n-ui-foundations';
 import Cookies from 'js-cookie';
+import * as flags from '@financial-times/dotcom-ui-flags';
 
 const articleAddToMyftButton = document.querySelector('.topper__primary-theme .n-myft-follow-button');
 const headerMyFTLogo = document.querySelector('[data-trackable="my-ft"]');
 const externalReferer = document.referrer && !(new URL(document.referrer).hostname.endsWith('.ft.com'));
 const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
-const {FT: {flags = {get: () => {}}} = {}} = window;
+const flagsClient = flags.init();
 let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
 
 export default function customSetup (banner, done) {
@@ -53,7 +54,7 @@ function showHeaderTooltip (banner, followedConcepts = []) {
 		}
 	});
 
-	if (flags.get('MyFT_DisengagedTooltipsTest')) {
+	if (flagsClient.get('MyFT_DisengagedTooltipsTest')) {
 		const tooltip = new Tooltip(headerMyFTLogo, {
 			target: 'myft-disengaged-tooltip',
 			content: content,
@@ -85,7 +86,7 @@ function showAboutTooltip (banner) {
 	});
 
 
-	if (flags.get('MyFT_DisengagedTooltipsTest')) {
+	if (flagsClient.get('MyFT_DisengagedTooltipsTest')) {
 		const tooltip = new Tooltip(articleAddToMyftButton, {
 			target: 'myft-disengaged-tooltip',
 			content: content,
