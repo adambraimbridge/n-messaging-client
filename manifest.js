@@ -172,5 +172,8 @@ module.exports = {
 	},
 	tbybPostTrialSubscribe: {
 		path: 'bottom/tbyb-post-trial-subscribe'
+	},
+	friedFrankLicence: {
+		path: 'bottom/fried-frank-licence'
 	}
 };
