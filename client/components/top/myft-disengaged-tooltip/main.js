@@ -1,18 +1,19 @@
+// This tooltip should be displayed for users who fill all the requirements below
+// - who are in disengaged cohort (it has been already checked when the decision for displaying this tooltip was made (messageSlotTop flag === 'MyftDisengagedTooltip'))
+// - who haven't followed any topics
+// - who haven't seen the tooltip more than 3 times
+
 import Tooltip from 'o-tooltip';
 import myftClient from 'next-myft-client/myft-bower';
 import {broadcast} from 'n-ui-foundations';
 import Cookies from 'js-cookie';
-import * as flags from '@financial-times/dotcom-ui-flags';
 
 const articleAddToMyftButton = document.querySelector('.topper__primary-theme .n-myft-follow-button');
 const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
-const flagsClient = flags.init();
 let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
 
 export default function customSetup (banner, done) {
-	if(!flagsClient.get('predictedToDisengageCohort') ||
-		!articleAddToMyftButton ||
-		articleTooltipSeenCount >= 3) {
+	if(!articleAddToMyftButton || articleTooltipSeenCount >= 3) {
 		return;
 	}
 
@@ -23,7 +24,10 @@ export default function customSetup (banner, done) {
 }
 
 function showTooltip (followedConcepts, banner) {
-	if (followedConcepts.length > 0) return;
+	if (followedConcepts.length > 0) {
+		return;
+	}
+
 	const topicName = document.querySelector('.topper__primary-theme .js-primary-theme').innerText;
 	const content = [
 		`Find ${topicName} stories easily.`,
