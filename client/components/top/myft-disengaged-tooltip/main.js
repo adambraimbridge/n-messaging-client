@@ -1,72 +1,33 @@
+// This tooltip should be displayed for users who fill all the requirements below
+// - who are in disengaged cohort (it has been already checked when the decision for displaying this tooltip was made (messageSlotTop flag === 'MyftDisengagedTooltip'))
+// - who haven't followed any topics
+// - who haven't seen the tooltip more than 3 times
+
 import Tooltip from 'o-tooltip';
 import myftClient from 'next-myft-client/myft-bower';
 import {broadcast} from 'n-ui-foundations';
 import Cookies from 'js-cookie';
 
 const articleAddToMyftButton = document.querySelector('.topper__primary-theme .n-myft-follow-button');
-const headerMyFTLogo = document.querySelector('[data-trackable="my-ft"]');
-const externalReferer = document.referrer && !(new URL(document.referrer).hostname.endsWith('.ft.com'));
 const ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME = 'FT_MyFT_article_tooltip';
-const {FT: {flags = {get: () => {}}} = {}} = window;
 let articleTooltipSeenCount = Cookies.get(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME) || 0;
 
 export default function customSetup (banner, done) {
-	if(!externalReferer && articleTooltipSeenCount >= 3) {
+	if(!articleAddToMyftButton || articleTooltipSeenCount >= 3) {
 		return;
-	}
-
-	function handleMyftResponse (followedConcepts) {
-		if (followedConcepts.length && externalReferer) {
-			showHeaderTooltip(banner, followedConcepts);
-		} else if (!followedConcepts.length && articleTooltipSeenCount < 3) {
-			showAboutTooltip(banner);
-		}
 	}
 
 	myftClient.init([{relationship: 'followed', type: 'concept'}])
 		.then(() => myftClient.getAll('followed', 'concept'))
-		.then(handleMyftResponse)
+		.then(followedConcepts => showTooltip(followedConcepts, banner))
 		.finally(() => done());
 }
 
-function showHeaderTooltip (banner, followedConcepts = []) {
-	if (!headerMyFTLogo) return;
-	const concepts = followedConcepts
-		.sort((a, b) => b.lastPublished - a.lastPublished)
-		.map(({name}) => `<span style="white-space: nowrap">${name}</span>`)
-		.slice(0, 3);
-	let content = 'Read the latest ';
-
-	if (concepts.length === 3) {
-		content += `${concepts.shift()}, `;
+function showTooltip (followedConcepts, banner) {
+	if (followedConcepts.length > 0) {
+		return;
 	}
 
-	content += concepts.join(' and ');
-	content += ' stories.';
-
-	broadcast('oTracking.event', {
-		action: 'criteria-met',
-		category: 'myft-disengaged-tooltip',
-		detail: {
-			type: 'header-tooltip',
-			followedConceptCount: followedConcepts.length
-		}
-	});
-
-	if (flags.get('MyFT_DisengagedTooltipsTest')) {
-		const tooltip = new Tooltip(headerMyFTLogo, {
-			target: 'myft-disengaged-tooltip',
-			content: content,
-			showOnConstruction: true,
-			position: 'below'
-		});
-		tooltip.tooltipEl.addEventListener('oTooltip.close', () => banner.close());
-	}
-
-}
-
-function showAboutTooltip (banner) {
-	if (!articleAddToMyftButton) return;
 	const topicName = document.querySelector('.topper__primary-theme .js-primary-theme').innerText;
 	const content = [
 		`Find ${topicName} stories easily.`,
@@ -84,16 +45,14 @@ function showAboutTooltip (banner) {
 		}
 	});
 
+	const tooltip = new Tooltip(articleAddToMyftButton, {
+		target: 'myft-disengaged-tooltip',
+		content: content,
+		showOnConstruction: true,
+		position: 'below'
+	});
 
-	if (flags.get('MyFT_DisengagedTooltipsTest')) {
-		const tooltip = new Tooltip(articleAddToMyftButton, {
-			target: 'myft-disengaged-tooltip',
-			content: content,
-			showOnConstruction: true,
-			position: 'below'
-		});
-		articleTooltipSeenCount++;
-		Cookies.set(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME, articleTooltipSeenCount, { expires: 365, path: '/content' });
-		tooltip.tooltipEl.addEventListener('oTooltip.close', () => banner.close());
-	}
+	articleTooltipSeenCount++;
+	Cookies.set(ARTICLE_TOOLTIP_SEEN_COUNT_COOKIE_NAME, articleTooltipSeenCount, { expires: 365, path: '/content' });
+	tooltip.tooltipEl.addEventListener('oTooltip.close', () => banner.close());
 }
