@@ -177,6 +177,7 @@ module.exports = {
 		},
 	},
 	remainingArticlesTest: {
-		path: 'bottom/remaining-articles'
+		path: 'bottom/lazy',
+		lazy: true
 	}
 };

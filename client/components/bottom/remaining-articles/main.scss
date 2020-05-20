@@ -1,0 +1,17 @@
+.n-messaging-client-messaging-banner--remaining-articles {
+	text-align: center;
+	.o-banner__content {
+		p {
+			padding-bottom: oSpacingByName('s2');
+			@include oTypographySerif(2);
+		}
+
+		.remaining-articles__counter {
+			@include oTypographySerif(7);
+		}
+	}
+
+	.o-banner__inner {
+		padding: oSpacingByName('s6') 0;
+	}
+}
