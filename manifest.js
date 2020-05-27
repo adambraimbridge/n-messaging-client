@@ -110,7 +110,7 @@ module.exports = {
 	ftWeekendPromo: {
 		path: 'bottom/lazy',
 		lazy: true,
-		eventRules: {maxOccurrences: {act: 1, view: 3, close:1}}
+		eventRules: { maxOccurrences: { act: 1, view: 3, close: 1 } }
 	},
 	giftArticles: {
 		path: 'top/gift-articles',
@@ -134,14 +134,14 @@ module.exports = {
 		path: 'bottom/lazy',
 		lazy: true
 	},
-	myFtFeedpageOverview : {
+	myFtFeedpageOverview: {
 		path: 'bottom/lazy',
 		lazy: true
 	},
-	fastFt : {
+	fastFt: {
 		path: 'bottom/fast-ft'
 	},
-	marketsData : {
+	marketsData: {
 		path: 'bottom/markets-data'
 	},
 	oneClickDailyDigest: {
@@ -170,7 +170,4 @@ module.exports = {
 	tbybPostTrialSubscribe: {
 		path: 'bottom/tbyb-post-trial-subscribe'
 	},
-	friedFrankLicence: {
-		path: 'bottom/fried-frank-licence'
-	}
 };
