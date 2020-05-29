@@ -4,12 +4,20 @@
 			background-color: oColorsByName('slate');
 			color: oColorsByName('white');
 
+			.n-messaging-banner__heading h1 {
+				font-family: FinancierDisplayWeb, serif;
+				font-size: 32px;
+				font-weight: initial;
+			}
+
 			.n-messaging-banner__heading:after {
+				padding-top: oSpacingByName('s2');
 				border-color: oColorsByName('wasabi');
 			}
 
 			.o-banner__action {
 				.o-banner__button {
+					margin-top: oSpacingByName('s4');
 					background-color: oColorsByName('white');
 					color: oColorsByName('black');
 				}
