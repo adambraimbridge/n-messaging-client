@@ -21,7 +21,7 @@ module.exports = {
 	marketingPopupPrompt: {
 		path: 'bottom/marketing-popup-prompt',
 		lazy: true,
-		guruQueryString: 'offerId=d6b1bd32-1bd6-368b-78c5-62793ee43e7a',
+		guruQueryString: 'offerId=499f84e9-d7fb-f90d-ba6a-9cbb65060a44',
 		trackingContext: {
 			opportunity_type: 'marketingPrompt',
 			opportunity_subtype: 'discount_33%off'

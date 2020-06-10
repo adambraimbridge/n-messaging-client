@@ -142,7 +142,9 @@ For easy client-side validation of the message, (does it render correctly on the
 
 When you are ready to ship the best method is to: Remove the variant from the flag. Ship part 2 (`messaging.json`). And then when you are good to go, re-add the variant to the flag. This method avoids having to deploy code to turn the feature on.
 
-If you need to turn a message off in production quickly, simply remove the variant from the flag.
+If you need to turn a message off in production quickly, the only thing you need to do is remove the variant from the flag.
+
+There are step by step instructions on [how to add or remove corporate cancellation message](/docs/corporate-cancellation-message.md)
 
 ### Images
 

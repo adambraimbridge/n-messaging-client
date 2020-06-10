@@ -9,7 +9,7 @@ module.exports = {
 			'45e2193a-f479-11e7-8c80-69ca88a9e8d1', // README.md:212
 			'4312a4ca-aeac-11e8-99ca-68cf89602132', // demos/templates/layouts/custom-vanilla.html:14
 			'97212eb0-abb9-11e8-8253-48106866cd8a', // demos/templates/layouts/custom-vanilla.html:29
-			'd6b1bd32-1bd6-368b-78c5-62793ee43e7a', // manifest.js:24
+			'499f84e9-d7fb-f90d-ba6a-9cbb65060a44', // manifest.js:24
 			'5a2ecc7c-f349-715e-f2c4-ce657532f71c', // server/templates/components/o-message-notice.html:23
 			'ed76f4a7-dcc0-f60d-5f92-0bd9b43f30dd', // server/templates/partials/bottom/b2b-trial-contact-us.html:21
 			'eb62aef2-4bdc-0f31-a2c5-6532b8e17896', // server/templates/partials/bottom/content-message.html:15
