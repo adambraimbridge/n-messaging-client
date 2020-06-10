@@ -19,7 +19,7 @@ module.exports = {
 		path: 'bottom/swg-entitlements-prompt'
 	},
 	marketingPopupPrompt: {
-		path: 'bottom/lazy',
+		path: 'bottom/marketing-popup-prompt',
 		lazy: true,
 		guruQueryString: 'offerId=499f84e9-d7fb-f90d-ba6a-9cbb65060a44',
 		trackingContext: {
