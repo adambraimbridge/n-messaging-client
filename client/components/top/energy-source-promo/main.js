@@ -43,7 +43,7 @@ const setState = (banner, desiredState) => {
 
 module.exports = function customSetup (banner, done) {
 	const submitButton = banner.messageElement.querySelector('[data-o-message-action="subscribe"]');
-	const closeButton = banner.messageElement.querySelector('[class*="__close"]');
+	const closeButton = banner.messageElement.querySelector('.o-message__close');
 
 	if (submitButton) {
 		submitButton.addEventListener('click', () => {
