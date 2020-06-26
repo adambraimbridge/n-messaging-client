@@ -25,7 +25,7 @@ const subscribeToNewsletter = () => {
 
 const setState = (banner, desiredState) => {
 	if (!['error', 'success', 'initial'].includes(desiredState)) {
-		return;
+		throw new Error(`Attempted to set invalid state on banner: ${desiredState}`);
 	}
 
 	banner.messageElement.dataset.state = desiredState;
