@@ -170,4 +170,7 @@ module.exports = {
 	tbybPostTrialSubscribe: {
 		path: 'bottom/tbyb-post-trial-subscribe'
 	},
+	energySourcePromo: {
+		path: 'top/energy-source-promo',
+	},
 };

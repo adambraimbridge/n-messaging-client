@@ -18,6 +18,7 @@ module.exports = {
 			'a44c9005-2a9c-fe2a-9140-1311ff87f25f', // server/templates/partials/top/print-banner-usa.html:4
 			'79c8c0c5-1686-7f28-3aeb-c14688d59749', // server/templates/partials/top/uk-election.html:4
 			'info@companyx.com', // docs/corporate-cancellation-message.md:31|36
+			'5655d099e4b01077e911d60f', // client/components/top/energy-source-promo/main.js:16
 		]
 	}
 };
