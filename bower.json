@@ -30,7 +30,7 @@
     "secret-squirrel.js"
   ],
   "dependencies": {
-    "n-ui-foundations": "^4.0.0-beta.1",
+    "n-ui-foundations": "^6.0.0",
     "o-banner": "^3.3.0",
     "o-share": "^7.0.0",
     "o-tooltip": "^4.0.0",
@@ -41,7 +41,7 @@
     "o-overlay": "^3.0.0",
     "o-loading": "^4.0.0",
     "o-tracking": "^2.0.6",
-    "n-myft-ui": "^21.2.0",
+    "n-myft-ui": "^22.0.0",
     "n-swg": "^2.1.1",
     "o-grid": "^5.2.6"
   }
