@@ -6,11 +6,13 @@ document.documentElement.classList.add('js', 'enhanced');
 oTracking.init({
 	server: 'https://spoor-api.ft.com/px.gif',
 	context: {
-		product: 'ft.com'
+		product: 'next'
 	},
 	user: {
 		ft_session: oTracking.utils.getValueFromCookie(/FTSession=([^;]+)/)
 	}
 });
+
+oTracking.click.init('cta');
 
 nMessagingClient.init();
