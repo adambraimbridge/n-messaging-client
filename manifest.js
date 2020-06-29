@@ -172,5 +172,8 @@ module.exports = {
 	},
 	energySourcePromo: {
 		path: 'top/energy-source-promo',
+		trackingContext: {
+			newsletterId: '5655d099e4b01077e911d60f',
+		},
 	},
 };
