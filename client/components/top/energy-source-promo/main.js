@@ -25,13 +25,15 @@ const subscribeToNewsletter = () => {
 };
 
 const setState = (banner, desiredState) => {
-	if (!['error', 'success', 'initial'].includes(desiredState)) {
+	const validStates = ['error', 'success', 'initial'];
+
+	if (!validStates.includes(desiredState)) {
 		throw new Error(`Attempted to set invalid state on banner: ${desiredState}`);
 	}
 
 	banner.messageElement.dataset.state = desiredState;
 
-	['error', 'success', 'initial'].forEach(state => {
+	validStates.forEach(state => {
 		const contentEl = banner.messageElement.querySelector(`.energy-source-promo__content--${state}`);
 
 		if (state === desiredState) {
