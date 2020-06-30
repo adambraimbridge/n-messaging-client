@@ -170,4 +170,10 @@ module.exports = {
 	tbybPostTrialSubscribe: {
 		path: 'bottom/tbyb-post-trial-subscribe'
 	},
+	energySourcePromo: {
+		path: 'top/energy-source-promo',
+		trackingContext: {
+			newsletterId: '5655d099e4b01077e911d60f',
+		},
+	},
 };
