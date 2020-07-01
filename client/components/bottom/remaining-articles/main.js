@@ -1,12 +1,9 @@
-export default function customSetup (banner, done, guruResult, trackEventAction) {
-	// console.log(guruResult);
+export default function customSetup (banner, done, guruResult) {
+	const remainingArticles = guruResult.renderData.remainingArticles;
 
-	// const {cohort, remainingArticles} = guruResult.renderData;
-
-	trackEventAction('test', 'some value', {
-		some: 'added context',
-	});
-
+	if(remainingArticles === 0) {
+		return;
+	}
 
 	done();
 }
