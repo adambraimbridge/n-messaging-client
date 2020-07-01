@@ -18,7 +18,7 @@
 	heading-rule-color: oColorsByName('lemon'),
 ));
 
-@include oBannerAddTheme('slate-white', (
+@include oBannerAddTheme('slate-background', (
 	background-color: oColorsByName('slate'),
 	text-color: oColorsByName('white'),
 ));
