@@ -1,21 +1,20 @@
 .n-messaging-client-messaging-banner--remaining-articles {
 	text-align: center;
-	.o-banner__content {
-		p {
-			padding-bottom: oSpacingByName('s2');
-			@include oTypographySerif(3);
 
-			.remaining-articles__counter {
-				@include oTypographySerif(
-					$scale: 6,
-					$include-font-family: false,
-				);
-			}
-		}
+	.remaining-articles__content {
+		padding-bottom: oSpacingByName('s2');
+		@include oTypographySerif(3);
+	}
 
-		a {
-			@include oTypographySans(0);
-		}
+	.remaining-articles__counter {
+		@include oTypographySerif(
+			$scale: 6,
+			$include-font-family: false,
+		);
+	}
+
+	.remaining-articles__link {
+		@include oTypographySans(0);
 	}
 
 	.o-banner__inner {
