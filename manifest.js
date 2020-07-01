@@ -176,4 +176,8 @@ module.exports = {
 			newsletterId: '5655d099e4b01077e911d60f',
 		},
 	},
+	remainingArticlesTest: {
+		path: 'bottom/remaining-articles',
+		lazy: true
+	}
 };

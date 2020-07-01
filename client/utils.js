@@ -38,7 +38,7 @@ const updateMessageEventCount = (messageId, event) => {
 
 module.exports = {
 	generateMessageEvent: function ({ messageId, position, flag, trackingContext, variant }={}) {
-		return function (action, trackingAttr) {
+		return function (action, trackingAttr, dynamicContext = {}) {
 			const detail = Object.assign({
 				category: 'n-messaging',
 				action: action,
@@ -46,7 +46,11 @@ module.exports = {
 				messaging_position: position,
 				messaging_flag: flag,
 				messaging_variant: variant
-			}, trackingContext);
+			},
+			trackingContext,
+			dynamicContext,
+			);
+
 			if (trackingAttr)
 				detail.messaging_action = trackingAttr;
 			const messagingEvent = new CustomEvent('oTracking.event', { detail, bubbles: true });

@@ -35,7 +35,8 @@ module.exports = function ({ guruEndpoint='/__message', name, guruQueryString }=
 			const validBannerThemes = [
 				'myft',
 				'product',
-				'marketing'
+				'marketing',
+				'slate-background'
 			];
 			const validBannerLayouts = [
 				'small',
