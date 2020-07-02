@@ -13,14 +13,22 @@ const BOTTOM_SLOT_FLAG = 'messageSlotBottom';
 
 module.exports = function ({ config={}, guruResult, customSetup }={}) {
 	let banner;
-	const variant = (guruResult && guruResult.renderData && guruResult.renderData.dynamicTrackingData) || config.name;
+	const guruRenderData = guruResult && guruResult.renderData || {};
+	const variant = (guruRenderData && guruResult.renderData.dynamicTrackingData) || config.name;
+
+	const trackingContext = Object.assign(
+		config.trackingContext || {},
+		guruRenderData && guruResult.renderData.trackingContext || {},
+	);
+
 	const trackEventAction = config.name && generateMessageEvent({
 		flag: BOTTOM_SLOT_FLAG,
 		messageId: config.name,
 		position: config.slot,
-		trackingContext: config.trackingContext,
+		trackingContext,
 		variant
 	});
+
 	const declarativeElement = !config.lazy && config.content;
 
 	if (declarativeElement) {
