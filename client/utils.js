@@ -38,7 +38,7 @@ const updateMessageEventCount = (messageId, event) => {
 
 module.exports = {
 	generateMessageEvent: function ({ messageId, position, flag, trackingContext, variant }={}) {
-		return function (action, trackingAttr, dynamicContext = {}) {
+		return function (action, trackingAttr) {
 			const detail = Object.assign({
 				category: 'n-messaging',
 				action: action,
@@ -47,8 +47,7 @@ module.exports = {
 				messaging_flag: flag,
 				messaging_variant: variant
 			},
-			trackingContext,
-			dynamicContext,
+			trackingContext
 			);
 
 			if (trackingAttr)
