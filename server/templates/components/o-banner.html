@@ -9,7 +9,8 @@
 	data-o-banner-banner-class="{{#if bannerClass}}{{bannerClass}}{{else}}o-banner{{/if}}"
 	data-o-banner-auto-open="false"
 	{{#if suppressCloseButton}} data-o-banner-suppress-close-button="true"{{/if}}
-	>
+	{{#if closeLabel}} data-o-banner-close-button-label="{{closeLabel}}"{{/if}}
+>
 	<div class="o-banner__outer">
 		{{#if @partial-block}}
 			{{{@partial-block}}}
